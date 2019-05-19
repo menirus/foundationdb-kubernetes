@@ -2,7 +2,7 @@
 Goal: To deploy foundationdb cluster in kubernetes and to make it discoverable from outside the cluster
 
 ## Findings:
-* For th cluster discovery, the co-ordinators should be exposed to the outside world from Kubernetes network using either NodePort Service, LoadBalancer Service or Ingress
+* For the cluster discovery, the co-ordinators should be exposed to the outside world from Kubernetes network using either NodePort Service, LoadBalancer Service or Ingress
 * Deployed single node foundationdb cluster using NodePort service
 * NodePort services run only in the ports in range 30000-32767
 * FoundationDB internal implementations have a strict requirements on the port numbers, internal address and public address should both run in the same port. (hence changed default 4500 port to 31111)

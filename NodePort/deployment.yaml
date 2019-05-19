@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foundation-server-deployment
+spec:
+  selector:
+    matchLabels:
+      app: fdb-server
+  template:
+    metadata:
+      labels:
+        app: fdb-server
+        type: static-ip-port
+    spec:
+      containers:
+        - name: foundationdb-server
+          image: menirus95/fdb-server
+          env:
+            - name: FDB_PORT
+              value: "31111"
+            - name: KUBE_NODE_EXTERNAL_IP
+              value: "35.194.5.18"
+            - name: FDB_NETWORKING_MODE
+              value: "kubernetes"
